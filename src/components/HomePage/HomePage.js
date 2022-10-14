@@ -1,5 +1,12 @@
 import { HomePageStyle, ImagesContainerStyle, TopMenuStyle } from './HomePage.style';
 import { GiUnderwearShorts } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
+const homePageImages = [
+  'https://images.unsplash.com/photo-1565870100382-f0a510db3cd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80',
+  'https://images.unsplash.com/photo-1622556498246-755f44ca76f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+  'https://images.unsplash.com/photo-1587573088942-300aeee98aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1326&q=80',
+  'https://images.unsplash.com/photo-1526948531399-320e7e40f0ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+];
 
 export default function HomePage() {
   return (
@@ -15,26 +22,18 @@ export default function HomePage() {
           <div className='logo-slogan'>Short links. For everyone</div>
         </div>
         <TopMenuStyle>
-          <div className='option'>Login</div>
-          <div className='option'>Sign-up</div>
+          <Link to='/login'>
+            <div className='option'>Login</div>
+          </Link>
+          <Link to='/sign-up'>
+            <div className='option'>Sign-up</div>
+          </Link>
         </TopMenuStyle>
         <ImagesContainerStyle>
-          <img
-            src='https://images.unsplash.com/photo-1565870100382-f0a510db3cd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80'
-            alt='Home page 1'
-          />
-          <img
-            src='https://images.unsplash.com/photo-1622556498246-755f44ca76f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
-            alt='Home page 2'
-          />
-          <img
-            src='https://images.unsplash.com/photo-1587573088942-300aeee98aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1326&q=80'
-            alt='Home page 3'
-          />
-          <img
-            src='https://images.unsplash.com/photo-1526948531399-320e7e40f0ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
-            alt='Home page 4'
-          />
+          <img src={homePageImages[0]} alt='Home page 1' />
+          <img src={homePageImages[1]} alt='Home page 2' />
+          <img src={homePageImages[2]} alt='Home page 3' />
+          <img src={homePageImages[3]} alt='Home page 4' />
         </ImagesContainerStyle>
       </HomePageStyle>
     </>
