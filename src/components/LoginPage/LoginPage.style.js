@@ -80,7 +80,7 @@ export const FormStyle = styled.form`
     box-shadow: 1px 1px 3px 1px black;
     font-size: 20px;
     line-height: 23px;
-    color: var(--quaternary-color);
+    color: var(--tertiary-color-alt);
     padding-left: 15px;
     outline: none;
     &::placeholder {
@@ -124,9 +124,6 @@ export const FormStyle = styled.form`
     }
   }
   .sign-up-link {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
     display: flex;
     font-size: 20px;
     line-height: 30px;
@@ -143,7 +140,10 @@ export const FormStyle = styled.form`
       }
     }
   }
-  a {
+  > a {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
     text-decoration: none;
   }
 `;

@@ -1,6 +1,40 @@
 import { LoginPageStyle, FormStyle } from './LoginPage.style';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { login } from '../../services/shortlyService';
 
 export default function LoginPage() {
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
+  const navigate = useNavigate();
+
+  const handleForm = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const clearForm = () => {
+    setForm({
+      email: '',
+      password: '',
+    });
+  };
+  const executeSignUp = (event) => {
+    event.preventDefault();
+    const promise = login(form);
+    promise
+      .then(() => {
+        clearForm();
+        navigate('/ranking');
+      })
+      .catch((res) => {
+        alert(res.response?.data?.message || 'Error when connecting to the database');
+        clearForm();
+      });
+  };
   return (
     <>
       <LoginPageStyle>
@@ -14,17 +48,31 @@ export default function LoginPage() {
           />
         </div>
         <div className='form-container'>
-          <FormStyle>
+          <FormStyle onSubmit={executeSignUp}>
             <h1>Login</h1>
-            <input type='email' name='email' placeholder='Email' />
-            <input type='password' name='password' placeholder='Password' />
+            <input
+              type='email'
+              name='email'
+              placeholder='Email'
+              value={form.email}
+              onChange={handleForm}
+            />
+            <input
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={form.password}
+              onChange={handleForm}
+            />
             <button>
               <h2>Enter</h2>
             </button>
-            <div className='sign-up-link'>
-              <h2>Don't have an account?</h2>
-              <span>Sign-up!</span>
-            </div>
+            <Link to='/sign-up'>
+              <div className='sign-up-link'>
+                <h2>Don't have an account?</h2>
+                <span>Sign-up!</span>
+              </div>
+            </Link>
           </FormStyle>
         </div>
       </LoginPageStyle>
