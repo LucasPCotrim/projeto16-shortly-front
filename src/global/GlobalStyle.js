@@ -151,6 +151,13 @@ const Global = css`
     font-family: 'Lexend Deca', sans-serif;
     font-weight: 400;
   }
+  #root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
 `;
 
 const GlobalStyle = createGlobalStyle`
