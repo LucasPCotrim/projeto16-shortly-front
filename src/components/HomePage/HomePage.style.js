@@ -105,6 +105,11 @@ export const TopMenuStyle = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  > a,
+  a:visited {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
 
   .option {
     margin-right: 40px;
