@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeInAnimation = keyframes`
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+`;
 
 export const HomePageStyle = styled.div`
   width: 100vw;
@@ -52,33 +61,38 @@ export const ImagesContainerStyle = styled.div`
     position: absolute;
     border-radius: 15px;
     object-fit: cover;
-    &:hover {
-      opacity: 50%;
-    }
+    opacity: 0%;
+    animation-name: ${fadeInAnimation};
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
   }
   > img:nth-child(1) {
     width: calc(50% - 5px);
     height: calc(30% - 5px);
     top: 0;
     left: 0;
+    animation-delay: 0.2s;
   }
   > img:nth-child(2) {
     width: calc(50% - 5px);
     height: 60%;
     top: 0;
     right: 0;
+    animation-delay: 0.6s;
   }
   > img:nth-child(3) {
     width: calc(50% - 5px);
     height: calc(30% - 5px);
     top: calc(30% + 5px);
     left: 0;
+    animation-delay: 1s;
   }
   > img:nth-child(4) {
     width: 100%;
     height: calc(40% - 10px);
     bottom: 0;
     right: 0;
+    animation-delay: 1.4s;
   }
 `;
 
