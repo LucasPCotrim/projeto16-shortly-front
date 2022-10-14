@@ -1,9 +1,12 @@
 import { LoginPageStyle, FormStyle } from './LoginPage.style';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login } from '../../services/shortlyService';
+import { setToken, login } from '../../services/shortlyService';
+import UserContext from '../../contexts/UserContext';
 
 export default function LoginPage() {
+  const { user, setUser } = useContext(UserContext);
+
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -26,9 +29,11 @@ export default function LoginPage() {
     event.preventDefault();
     const promise = login(form);
     promise
-      .then(() => {
+      .then((res) => {
+        setToken(res.data.token, user, setUser);
+        setUser({ ...user, email: form.email });
         clearForm();
-        navigate('/ranking');
+        navigate('/main');
       })
       .catch((res) => {
         alert(res.response?.data?.message || 'Error when connecting to the database');
