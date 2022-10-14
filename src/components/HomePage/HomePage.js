@@ -1,4 +1,3 @@
-import React from 'react';
 import { HomePageStyle, ImagesContainerStyle, TopMenuStyle } from './HomePage.style';
 import { GiUnderwearShorts } from 'react-icons/gi';
 
