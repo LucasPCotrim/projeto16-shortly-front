@@ -102,14 +102,13 @@ export const MyLinksContainerStyle = styled.div`
       background-color: var(--tertiary-color);
       border-radius: 12px;
       padding: 0 12px 0 12px;
+      &:hover {
+        background-color: var(--tertiary-color-alt);
+      }
       > .url {
         height: 18px;
         width: 40%;
         overflow: hidden;
-      }
-      > .short-url {
-      }
-      > .visit-count {
       }
       > .delete-button {
         font-size: 20px;
