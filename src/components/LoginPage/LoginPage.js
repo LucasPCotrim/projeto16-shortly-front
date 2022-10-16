@@ -25,13 +25,12 @@ export default function LoginPage() {
       password: '',
     });
   };
-  const executeSignUp = (event) => {
+  const executeLogin = (event) => {
     event.preventDefault();
     const promise = login(form);
     promise
       .then((res) => {
         setToken(res.data.token, user, setUser);
-        setUser({ ...user, email: form.email });
         clearForm();
         navigate('/main');
       })
@@ -53,7 +52,7 @@ export default function LoginPage() {
           />
         </div>
         <div className='form-container'>
-          <FormStyle onSubmit={executeSignUp}>
+          <FormStyle onSubmit={executeLogin}>
             <h1>Login</h1>
             <input
               type='email'
