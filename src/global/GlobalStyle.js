@@ -145,7 +145,6 @@ const Global = css`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    overflow: hidden;
     background-color: var(--quaternary-color);
     color: var(--primary-color);
     font-family: 'Lexend Deca', sans-serif;

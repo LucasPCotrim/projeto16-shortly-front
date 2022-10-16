@@ -70,3 +70,57 @@ export const MainPageStyle = styled.div`
     }
   }
 `;
+
+export const MyLinksContainerStyle = styled.div`
+  margin-top: 40px;
+  width: 100%;
+  > a,
+  a:visited {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  > h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  > h2 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 50px;
+  }
+  .urls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    > .url-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 60px;
+      background-color: var(--tertiary-color);
+      border-radius: 12px;
+      padding: 0 12px 0 12px;
+      > .url {
+        height: 18px;
+        width: 40%;
+        overflow: hidden;
+      }
+      > .short-url {
+      }
+      > .visit-count {
+      }
+      > .delete-button {
+        font-size: 20px;
+        color: rgb(131, 31, 7);
+        cursor: pointer;
+        transition: transform 0.3s;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+`;

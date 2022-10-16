@@ -56,4 +56,20 @@ function getRankings() {
   return promise;
 }
 
-export { setToken, getToken, deleteToken, signUp, login, getUserInfo, shortenURL, getRankings };
+function deleteURL(id) {
+  const config = getConfig();
+  const promise = axios.delete(`${BASE_URL}/urls/${id}`, config);
+  return promise;
+}
+
+export {
+  setToken,
+  getToken,
+  deleteToken,
+  signUp,
+  login,
+  getUserInfo,
+  shortenURL,
+  getRankings,
+  deleteURL,
+};
