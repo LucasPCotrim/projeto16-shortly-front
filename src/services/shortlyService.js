@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'https://back-end-shortly.herokuapp.com';
 
 function setToken(token, user, setUser) {
   localStorage.setItem('shortly', JSON.stringify({ token }));

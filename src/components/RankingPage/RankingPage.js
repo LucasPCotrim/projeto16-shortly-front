@@ -20,7 +20,6 @@ export default function RankingPage() {
     const promise = getRanking();
     promise
       .then((res) => {
-        console.log(res);
         setRanking(res.data);
       })
       .catch((res) => {

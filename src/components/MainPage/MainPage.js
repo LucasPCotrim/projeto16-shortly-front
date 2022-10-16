@@ -33,7 +33,6 @@ function UrlWrapper({ id, url, shortUrl, visitCount }) {
                 shortenedUrls: res.data.shortenedUrls,
               },
             });
-            console.log(user);
           })
           .catch((res) => {
             alert(res.response?.data?.message || 'Error when connecting to the database');
@@ -69,9 +68,6 @@ function LinksContainer({ userInfo }) {
   const nLinks = userInfo?.shortenedUrls.length || 0;
   const visitCount = userInfo?.visitCount || 0;
   const urls = userInfo?.shortenedUrls;
-  console.log(userInfo);
-  console.log(nLinks);
-  console.log(urls);
   if (nLinks === 0) {
     return (
       <>
@@ -120,7 +116,6 @@ export default function MainPage() {
             shortenedUrls: res.data.shortenedUrls,
           },
         });
-        console.log(user);
       })
       .catch((res) => {
         alert(res.response?.data?.message || 'Error when connecting to the database');
@@ -152,7 +147,6 @@ export default function MainPage() {
                 shortenedUrls: res.data.shortenedUrls,
               },
             });
-            console.log(user);
           })
           .catch((res) => {
             alert(res.response?.data?.message || 'Error when connecting to the database');
