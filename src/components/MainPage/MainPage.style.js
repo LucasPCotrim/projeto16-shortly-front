@@ -74,9 +74,8 @@ export const MainPageStyle = styled.div`
 export const MyLinksContainerStyle = styled.div`
   margin-top: 40px;
   width: 100%;
-  > a,
+  a,
   a:visited {
-    text-decoration: none;
     color: var(--primary-color);
   }
   > h1 {

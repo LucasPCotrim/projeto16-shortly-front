@@ -2,7 +2,13 @@
 import { MainPageStyle, MyLinksContainerStyle } from './MainPage.style';
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
-import { deleteToken, getUserInfo, shortenURL, deleteURL } from '../../services/shortlyService';
+import {
+  BASE_URL,
+  deleteToken,
+  getUserInfo,
+  shortenURL,
+  deleteURL,
+} from '../../services/shortlyService';
 import { useNavigate } from 'react-router-dom';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 
@@ -45,7 +51,11 @@ function UrlWrapper({ id, url, shortUrl, visitCount }) {
             {cutUrl}
           </a>
         </div>
-        <div className='short-url'>{shortUrl}</div>
+        <div className='short-url'>
+          <a href={`${BASE_URL}/urls/open/${shortUrl}`} target='_blank' rel='noreferrer'>
+            {shortUrl}
+          </a>
+        </div>
         <div className='visit-count'>Visit count: {visitCount}</div>
         <div className='delete-button'>
           <RiDeleteBin5Fill onClick={() => deleteUrl(id)} />
@@ -57,6 +67,7 @@ function UrlWrapper({ id, url, shortUrl, visitCount }) {
 
 function LinksContainer({ userInfo }) {
   const nLinks = userInfo?.shortenedUrls.length || 0;
+  const visitCount = userInfo?.visitCount || 0;
   const urls = userInfo?.shortenedUrls;
   console.log(userInfo);
   console.log(nLinks);
@@ -72,7 +83,10 @@ function LinksContainer({ userInfo }) {
     <>
       <MyLinksContainerStyle>
         <h1>Hello {userInfo?.name}!</h1>
-        <h2>You have {nLinks} URLs</h2>
+        <h2>
+          You have {nLinks} {nLinks > 1 ? 'URLs' : 'URL'} and {visitCount}{' '}
+          {visitCount > 1 ? 'total visits' : 'visit'}
+        </h2>
         <div className='urls-container'>
           {urls.map((url, index) => (
             <UrlWrapper
@@ -121,7 +135,7 @@ export default function MainPage() {
     setUrlToShorten(event.target.value);
   };
   const clearInput = () => {
-    setUrlToShorten('');
+    setUrlToShorten('https://');
   };
   const submitUrl = () => {
     const promise = shortenURL({ url: urlToShorten });

@@ -63,6 +63,7 @@ function deleteURL(id) {
 }
 
 export {
+  BASE_URL,
   setToken,
   getToken,
   deleteToken,
