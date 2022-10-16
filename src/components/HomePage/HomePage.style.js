@@ -122,8 +122,10 @@ export const TopMenuStyle = styled.div`
   }
   @media (max-width: 800px) {
     width: 50%;
+    padding-right: 10px;
     .option {
-      font-size: 18px;
+      margin-right: 10px;
+      font-size: 16px;
     }
   }
 `;

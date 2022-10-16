@@ -52,4 +52,23 @@ export const TopMenuStyle = styled.div`
       }
     }
   }
+  @media (max-width: 500px) {
+    .links-container {
+      justify-content: space-between;
+    }
+    .option {
+      font-size: 16px;
+      margin-right: 0;
+      letter-spacing: 1px;
+    }
+    .logo-name {
+      font-size: max(calc(2.8169014084507vw + 19.577464788732px), 42px);
+      .logo-icon {
+        font-size: calc(0.777 * max(calc(2.8169014084507vw + 19.577464788732px), 42px));
+      }
+    }
+    .logo-slogan {
+      font-size: calc(0.222 * max(calc(2.8169014084507vw + 19.577464788732px), 42px));
+    }
+  }
 `;
