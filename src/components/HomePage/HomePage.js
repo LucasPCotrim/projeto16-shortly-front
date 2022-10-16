@@ -1,6 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { HomePageStyle, ImagesContainerStyle, TopMenuStyle } from './HomePage.style';
 import { GiUnderwearShorts } from 'react-icons/gi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getToken } from '../../services/shortlyService';
 const homePageImages = [
   'https://images.unsplash.com/photo-1565870100382-f0a510db3cd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80',
   'https://images.unsplash.com/photo-1622556498246-755f44ca76f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
@@ -9,6 +12,13 @@ const homePageImages = [
 ];
 
 export default function HomePage() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (getToken()) {
+      navigate('/main');
+    }
+  }, []);
+
   return (
     <>
       <HomePageStyle>

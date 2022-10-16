@@ -9,9 +9,7 @@ import UserContext from './contexts/UserContext';
 import { useState } from 'react';
 
 export default function App() {
-  const [user, setUser] = useState({
-    name: '',
-  });
+  const [user, setUser] = useState({});
 
   return (
     <>

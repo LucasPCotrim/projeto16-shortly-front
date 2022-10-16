@@ -2,9 +2,11 @@
 import { MainPageStyle } from './MainPage.style';
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
-import { getUserInfo, shortenURL } from '../../services/shortlyService';
+import { deleteToken, getUserInfo, shortenURL } from '../../services/shortlyService';
+import { useNavigate } from 'react-router-dom';
 
 export default function MainPage() {
+  const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
   const [urlToShorten, setUrlToShorten] = useState('');
 
@@ -12,11 +14,22 @@ export default function MainPage() {
     const promise = getUserInfo();
     promise
       .then((res) => {
-        setUser({ ...user, name: res.data.name, shortenedUrls: res.data.shortenedUrls });
+        setUser({
+          ...user,
+          userInfo: {
+            name: res.data.name,
+            visitCount: res.data.visitCount,
+            shortenedUrls: res.data.shortenedUrls,
+          },
+        });
         console.log(user);
       })
       .catch((res) => {
         alert(res.response?.data?.message || 'Error when connecting to the database');
+        if (res.response?.status === 401) {
+          deleteToken();
+          navigate('/');
+        }
       });
   }, []);
 

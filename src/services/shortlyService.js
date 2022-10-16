@@ -11,6 +11,10 @@ function getToken() {
   return auth?.token;
 }
 
+function deleteToken() {
+  localStorage.removeItem('shortly');
+}
+
 function getConfig() {
   const token = getToken();
   if (!token) {
@@ -52,4 +56,4 @@ function getRankings() {
   return promise;
 }
 
-export { setToken, getToken, signUp, login, getUserInfo, shortenURL, getRankings };
+export { setToken, getToken, deleteToken, signUp, login, getUserInfo, shortenURL, getRankings };
