@@ -10,8 +10,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [user, setUser] = useState({
-    cart: { products: [] },
-    products: [],
+    name: '',
   });
 
   return (
