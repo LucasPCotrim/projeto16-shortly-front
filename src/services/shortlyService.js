@@ -7,7 +7,7 @@ function setToken(token, user, setUser) {
 }
 
 function getToken() {
-  const auth = JSON.parse(localStorage.getItem('readOn'));
+  const auth = JSON.parse(localStorage.getItem('shortly'));
   return auth?.token;
 }
 
@@ -35,4 +35,21 @@ function login(body) {
   return promise;
 }
 
-export { setToken, getToken, getConfig, signUp, login };
+function getUserInfo() {
+  const config = getConfig();
+  const promise = axios.get(`${BASE_URL}/users/me`, config);
+  return promise;
+}
+
+function shortenURL(body) {
+  const config = getConfig();
+  const promise = axios.post(`${BASE_URL}/urls/shorten`, body, config);
+  return promise;
+}
+
+function getRankings() {
+  const promise = axios.get(`${BASE_URL}/urls/ranking`);
+  return promise;
+}
+
+export { setToken, getToken, signUp, login, getUserInfo, shortenURL, getRankings };
