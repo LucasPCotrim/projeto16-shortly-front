@@ -51,8 +51,8 @@ function shortenURL(body) {
   return promise;
 }
 
-function getRankings() {
-  const promise = axios.get(`${BASE_URL}/urls/ranking`);
+function getRanking() {
+  const promise = axios.get(`${BASE_URL}/ranking`);
   return promise;
 }
 
@@ -71,6 +71,6 @@ export {
   login,
   getUserInfo,
   shortenURL,
-  getRankings,
+  getRanking,
   deleteURL,
 };
