@@ -51,12 +51,7 @@ export const ImagesContainerStyle = styled.div`
   right: 10%;
   height: 60%;
   width: min(80%, 1200px);
-  @media (max-width: 1000px) {
-    top: 25%;
-    right: 5%;
-    height: 60%;
-    width: 90%;
-  }
+
   > img {
     position: absolute;
     border-radius: 15px;
@@ -94,6 +89,15 @@ export const ImagesContainerStyle = styled.div`
     right: 0;
     animation-delay: 1.4s;
   }
+  @media (max-width: 1000px) {
+    top: 25%;
+    right: 5%;
+    height: 60%;
+    width: 90%;
+  }
+  @media (max-width: 575px) {
+    top: 35%;
+  }
 `;
 
 export const TopMenuStyle = styled.div`
@@ -120,12 +124,17 @@ export const TopMenuStyle = styled.div`
       color: var(--tertiary-color);
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 575px) {
     width: 50%;
     padding-right: 10px;
+    position: static;
+    top: initial;
+    right: initial;
+    width: 100%;
+    margin-top: 100px;
     .option {
-      margin-right: 10px;
-      font-size: 16px;
+      margin-right: 15px;
+      font-size: 18px;
     }
   }
 `;

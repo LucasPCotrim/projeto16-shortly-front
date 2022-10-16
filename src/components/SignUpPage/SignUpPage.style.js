@@ -146,4 +146,12 @@ export const FormStyle = styled.form`
     left: 10px;
     text-decoration: none;
   }
+  @media (max-width: 575px) {
+    .login-link {
+      h2,
+      span {
+        font-size: 14px;
+      }
+    }
+  }
 `;

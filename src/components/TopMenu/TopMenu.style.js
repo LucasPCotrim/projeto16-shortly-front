@@ -52,13 +52,20 @@ export const TopMenuStyle = styled.div`
       }
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: 575px) {
+    .logo-container {
+      margin-left: 10px;
+    }
     .links-container {
-      justify-content: space-between;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 100%;
+      justify-content: flex-start;
     }
     .option {
       font-size: 16px;
       margin-right: 0;
+      margin-left: 10px;
       letter-spacing: 1px;
     }
     .logo-name {
