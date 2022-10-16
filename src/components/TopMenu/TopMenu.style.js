@@ -20,7 +20,6 @@ export const TopMenuStyle = styled.div`
       gap: 20px;
       font-family: Playball;
       font-size: max(calc(2.8169014084507vw + 19.577464788732px), 48px);
-      cursor: pointer;
       .logo-icon {
         height: 100%;
         display: flex;
